@@ -37,12 +37,14 @@ class DashboardComponent extends React.Component {
         <div className='dashboard-container' id='dashboard-container' style={{ display: 'flex',
         backgroundcolor: 'blue',
         border:"1px solid black",
-        // background: "#454343",
         backgroundColor: 'white',
         position: 'absolute',
+        overflow: 'hidden !important',
         left: '120%',
         top: '5%',
         marginRight: '40%',
+        minHeight: '450px',
+        minWidth: '700px',
         height: '90vh',
         width: '60%',
         overflow: "auto",
@@ -66,7 +68,7 @@ class DashboardComponent extends React.Component {
           {
             this.state.newChatFormVisible ? <NewChatComponent goToChatFn={this.goToChat} newChatSubmitFn={this.newChatSubmit}></NewChatComponent> : null
           }
-          <Button variant='contained' color='primary'  onClick={this.signOut} className={classes.signOutBtn}>Sign Out</Button>
+          <div variant='contained' color='primary' className={classes.signOutBtn}></div>
         </div>
       );
     } else {

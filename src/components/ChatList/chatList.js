@@ -1,10 +1,16 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
+
+import { Avatar, IconButton } from "@material-ui/core";
+import ChatIcon from '@material-ui/icons/Chat';
+import ContactsIcon from '@material-ui/icons/Contacts';
+import GroupIcon from '@material-ui/icons/Group';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import styles from './styles';
 import Divider from '@material-ui/core/Divider';
@@ -13,6 +19,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import NotificationImportant from '@material-ui/icons/NotificationImportant';
 
 class ChatListComponent extends React.Component {
+  signOut(){
+    // firebase.auth().signOut();
+    window.location.reload(false);
+  }
 
   render() {
 
@@ -21,13 +31,23 @@ class ChatListComponent extends React.Component {
     if(this.props.chats.length > 0) {
       return(
         <div className={classes.root}>
-            <Button variant="contained" 
+
+            <div className='sidebar__header'>
+                <div className='sidebar__headerRight'>
+                        <IconButton>
+                            <ChatIcon onClick={this.newChat}/>
+                        </IconButton>
+                        <IconButton>
+                            <ExitToAppIcon onClick={this.signOut}/>
+                        </IconButton>
+                </div>
+            </div>
+
+            <div variant="contained" 
               fullWidth 
               color='primary' 
-              onClick={this.newChat} 
-              className={classes.newChatBtn}>
-                New Message
-            </Button>
+              style={{height:'8px',backgroundColor: '#3f51b5'}}>
+            </div>
             <List>
               {
                 this.props.chats.map((_chat, _index) => {

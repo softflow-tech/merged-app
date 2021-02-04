@@ -27,7 +27,18 @@ class ChatViewComponent extends React.Component {
           <div className={classes.chatHeader}>
             Your conversation with {this.props.chat.users.filter(_usr => _usr !== this.props.user)[0]}
           </div>
-          <main id='chatview-container' className={classes.content}>
+          <main id='chatview-container' className={classes.content} style={{
+            top: '50px',
+            color: 'white',
+            width: 'calc(100% - 300px)',
+            height: '80vh',
+            padding: '25px',
+            overflow: 'auto',
+            position: 'absolute',
+            boxSizing: 'border-box',
+            overflowY: 'auto',
+            marginLeft: '300px',
+          }}>
             {
               this.props.chat.messages.map((_msg, _index) => {
                 return(
