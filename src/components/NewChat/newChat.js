@@ -29,7 +29,7 @@ class NewChatComponent extends React.Component {
               </InputLabel>
               <Input required 
                 className={classes.input}
-                autoFocus 
+                // autoFocus 
                 onChange={(e) => this.userTyping('username', e)} 
                 id='new-chat-username'>
               </Input>
@@ -57,7 +57,17 @@ class NewChatComponent extends React.Component {
       </main>
     );
   }
-
+  
+  // validURL(str) {
+  //   var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+  //     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+  //     '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+  //     '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+  //     '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+  //     '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  //   return !!pattern.test(str);
+  // }
+  
   componentWillMount() {
     if(!firebase.auth().currentUser)
       this.props.history.push('/login');
