@@ -21,7 +21,7 @@ class DashboardComponent extends React.Component {
     super();
     this.state = {
       selectedChat: null,
-      newChatFormVisible: false,
+      newChatFormVisible: true,
       email: null,
       friends: [],
       chats: []

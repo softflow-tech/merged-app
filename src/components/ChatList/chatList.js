@@ -17,13 +17,14 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import NotificationImportant from '@material-ui/icons/NotificationImportant';
+import { firebase } from '@firebase/app';
 
 class ChatListComponent extends React.Component {
   signOut(){
     // firebase.auth().signOut();
     window.location.reload(false);
   }
-
+  
   render() {
 
     const { classes } = this.props;
@@ -35,7 +36,7 @@ class ChatListComponent extends React.Component {
             <div className='sidebar__header'>
                 <div className='sidebar__headerRight'>
                         <IconButton>
-                            <ChatIcon onClick={this.newChat}/>
+                            <ChatIcon onClick={this.newChat} id='potato' />
                         </IconButton>
                         <IconButton>
                             <ExitToAppIcon onClick={this.signOut}/>
@@ -60,8 +61,18 @@ class ChatListComponent extends React.Component {
                         <ListItemAvatar>
                           <Avatar alt="Remy Sharp">{_chat.users.filter(_user => _user !== this.props.userEmail)[0].split('')[0]}</Avatar>
                         </ListItemAvatar>
-                        <ListItemText 
-                          primary={_chat.users.filter(_user => _user !== this.props.userEmail)[0]}
+                        <ListItemText
+                          primary={
+                            <React.Fragment>
+                            <Typography component='span'
+                              color='textPrimary' id='blabla'>
+                                {i = _chat.users.filter(_user => _user !== this.props.userEmail)[0]}
+                                {userFromEmail(i)}
+                            </Typography>
+                          </React.Fragment>
+                
+                          }
+
                           secondary={
                             <React.Fragment>
                               <Typography component='span'
@@ -102,53 +113,28 @@ class ChatListComponent extends React.Component {
   userIsSender = (chat) => chat.messages[chat.messages.length - 1].sender === this.props.userEmail;
   newChat = () => this.props.newChatBtnFn();
   selectChat = (index) => this.props.selectChatFn(index);
+
+}
+
+
+var i
+function userFromEmail(em){
+  firebase
+  .firestore()
+  .collection('users')
+  .doc(em)
+  .get()
+  .then((doc) => {
+    if (doc.exists) {
+      document.getElementById('blabla').innerText = doc.data().displayName;
+
+    } else {
+        // doc.data() will be undefined in this case
+        document.getElementById('blabla').innerText = 'anonymous';
+    }
+})
+
 }
 
 export default withStyles(styles)(ChatListComponent);
 
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import './chatList.css';
-
-// class ChatListComponent extends React.Component {
-//   render() {
-//     if(this.props.chats.length > 0) {
-//       return(
-//         <div className='chat-list-container'>
-//           <button onClick={this.newChat} className='add-new-chat-button'>New Message</button>
-//           {
-//             this.props.chats.map((_chat, _index) => {
-//               return (
-//                 <div onClick={() => this.selectChat(_index)} key={_index} className={`individual-chat-container ${this.props.selectedChatIndex === _index ? 'selected-chat' : ''}`}>
-//                   <h5>{_chat.users.filter(_user => _user !== this.props.userEmail)[0]}</h5>
-//                   <p>{_chat.messages[_chat.messages.length - 1].message.substring(0, 30) + ' ...'}</p>
-//                 </div>
-//               )
-//             })
-//           }
-//         </div>
-//       );
-//     } else {
-//       return(
-//         <div className='chat-list-container'>
-//           <button onClick={this.newChat} className='add-new-chat-button'>New Message</button>
-//         </div>
-//       );
-//     }
-//   }
-//   newChat = () => this.props.newChatBtnFn();
-//   selectChat = (index) => this.props.selectChatFn(index);
-// }
-
-// export default ChatListComponent;

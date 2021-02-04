@@ -2,14 +2,14 @@
 import firebase from 'firebase'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCCDjeZQL_be4ySxsxBmO2el5fe0J_Q824",
-  authDomain: "chatti-c671a.firebaseapp.com",
-  databaseURL: "https://chatti-c671a-default-rtdb.firebaseio.com",
-  projectId: "chatti-c671a",
-  storageBucket: "chatti-c671a.appspot.com",
-  messagingSenderId: "721440239126",
-  appId: "1:721440239126:web:c60aed08535a5ab8774f37",
-  measurementId: "G-S1VYQ4EW5H"
+  apiKey: "AIzaSyC18yxvskPTNpcN-Tz4nFikJ5i9QtPuta4",
+  authDomain: "backup2-49c2f.firebaseapp.com",
+  projectId: "backup2-49c2f",
+  storageBucket: "backup2-49c2f.appspot.com",
+  messagingSenderId: "655035542798",
+  appId: "1:655035542798:web:7297998ae93e40e9673b5f",
+  measurementId: "G-ZY8F6NCSPN"
+
 };
 
 // const firebaseConfig = {
