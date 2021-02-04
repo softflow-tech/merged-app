@@ -27,7 +27,7 @@ export default function Contacts() {
                 <h1>Contacts</h1>
             </div>
             <div className='contacts__cards'>
-                <ContactsCard addNewContact/>
+                {/* <ContactsCard addNewContact/> */}
                 {users && users.map(userDetails =>(
                     <ContactsCard userDetails={userDetails}/>
                 ))}
