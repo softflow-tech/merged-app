@@ -1,0 +1,87 @@
+.app{
+    display: grid;
+    place-items: center;
+    /* background-color: rgb(189, 186, 186); */
+    height: 100vh;
+    background-color: darkcyan;
+}
+
+.app__body{
+    display: flex;
+    background-color: whitesmoke;
+    margin-top: -50px;
+    height: 90vh;
+    width: 90vh;
+    box-shadow: -1px 4px 20px -6px black;
+}
+
+.arrow {
+    cursor: pointer;
+    height: 120px;
+    left: 95%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: transform 0.1s;
+    width: 80px;
+}
+.arrow-top, .arrow-bottom {
+    background-color: #666;
+    height: 4px;
+    left: -5px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+.arrow-top:after, .arrow-bottom:after {
+    background-color: #fff;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s;
+}
+.arrow-top {
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+}
+.arrow-top:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0s;
+}
+.arrow-bottom {
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+.arrow-bottom:after {
+    left: 0;
+    right: 100%;
+    transition-delay: 0.15s;
+}
+.arrow:hover .arrow-top:after {
+    left: 0;
+    transition-delay: 0.15s;
+}
+.arrow:hover .arrow-bottom:after {
+    right: 0;
+    transition-delay: 0s;
+}
+.arrow:active {
+    transform: translateX(-50%) translateY(-50%) scale(0.9);
+}
+
+#leftarr {
+    left: 102%;
+    height: 0;
+}
+
+#root.horizTranslate {
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    -ms-transition: 3s;
+    -o-transition: 3s;
+    transition: 3s;
+    left: -100%;
+  }
+  
