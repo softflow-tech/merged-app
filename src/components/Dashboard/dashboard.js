@@ -35,13 +35,18 @@ class DashboardComponent extends React.Component {
     if(this.state.email) {
       return(
         <div className='dashboard-container' id='dashboard-container' style={{ display: 'flex',
-        backgroundcolor: 'whitesmoke',
+        backgroundcolor: 'blue',
+        border:"1px solid black",
+        // background: "#454343",
+        backgroundColor: 'white',
         position: 'absolute',
-        left: '110%',
-        marginRight: '30%',
+        left: '120%',
+        top: '5%',
+        marginRight: '40%',
         height: '90vh',
-        width: '90%',
-        boxshadow: '-1px 4px 20px -6px black' }}>
+        width: '60%',
+        overflow: "auto",
+        boxShadow: '-1px 4px 20px -6px black' }}>
           <ChatListComponent history={this.props.history} 
             userEmail={this.state.email} 
             selectChatFn={this.selectChat} 
@@ -61,7 +66,7 @@ class DashboardComponent extends React.Component {
           {
             this.state.newChatFormVisible ? <NewChatComponent goToChatFn={this.goToChat} newChatSubmitFn={this.newChatSubmit}></NewChatComponent> : null
           }
-          <Button onClick={this.signOut} className={classes.signOutBtn}>Sign Out</Button>
+          <Button variant='contained' color='primary'  onClick={this.signOut} className={classes.signOutBtn}>Sign Out</Button>
         </div>
       );
     } else {

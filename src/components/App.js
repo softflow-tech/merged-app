@@ -28,10 +28,12 @@ function App() {
 
   const slideRight = () => {
     document.getElementById('root').style.left = '-100%';
+    document.getElementById('root').style.animation = 'slide-in 1s';
   };
 
   const slideLeft = () => {
     document.getElementById('root').style.left = '0';
+    document.getElementById('root').style.animation = 'slide-in 1s';
   };
 
   const [{user}, dispatch ] = useStateValue();
@@ -54,6 +56,7 @@ function App() {
           </div>
         <DashboardComponent />
         <Router>
+          <Sidebar />
           <Switch>
             <Route path='/rooms/:roomId'>
               <Chat />
@@ -72,7 +75,6 @@ function App() {
               <Account />
             </Route>          
           </Switch>
-          <Sidebar />
         </Router>
       </div>
 

@@ -51,7 +51,7 @@ export default function Account() {
         <div className='account__info'>
             <h2>Account information: </h2>
             <p><b>Email: </b>{user.email}</p>
-            {/* <p><b>Last Login: </b>{user.metadata.lastSignInTime}</p> */}
+            <p><b>Last Login: </b>{user.metadata.lastSignInTime}</p>
         </div>
 
     </div>

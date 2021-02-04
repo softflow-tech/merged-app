@@ -23,7 +23,7 @@ class ChatViewComponent extends React.Component {
       return(<main className={classes.content}></main>);
     } else if(this.props.chat !== undefined) {
       return(
-        <div>
+        <div style={{width:"100%"}}>
           <div className={classes.chatHeader}>
             Your conversation with {this.props.chat.users.filter(_usr => _usr !== this.props.user)[0]}
           </div>

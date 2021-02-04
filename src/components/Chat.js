@@ -73,7 +73,7 @@ export default function Chat(){
                 <Avatar />
                 <div className='chat__headerInfo'>
                     <h3>{roomName}</h3>
-                    <p>Last seen</p>
+                    {/* <p>Last seen</p> */}
                 </div>
                 <div className='chat__headerRight'>
                     {/* <IconButton>

@@ -7,11 +7,13 @@ import { Avatar, IconButton } from "@material-ui/core";
 import ChatIcon from '@material-ui/icons/Chat';
 import ContactsIcon from '@material-ui/icons/Contacts';
 import GroupIcon from '@material-ui/icons/Group';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import '../css/Sidebar.css'
 import SidebarChat from './SidebarChat'
 import DirectMessages from './DirectMessages'
 import { useStateValue } from "../components/StateProvider";
 import db from '../firebase'
+import firebase from 'firebase'
 
 export default function Sidebar() {
     const [rooms, setRooms] = useState([]);
@@ -29,23 +31,40 @@ export default function Sidebar() {
             unsubscribe();
         }
     }, []);
+
+    const slideRight = () => {
+        document.getElementById('root').style.left = '-100%';
+      };
+
+    const signOut = () => {
+        firebase.auth().signOut();
+        window.location.reload(false);
+    }
+
+
     return (
         <div className='sidebar'>
             {/* <h1>sidebar</h1> */}
             <div className='sidebar__header'>
+                < Link to={`/account/`}>
+                    <Avatar src={user?.photoURL} />
+                </ Link>
                 <div className='sidebar__headerRight'>
                     <Link to='/contacts'>
                         <IconButton>
                             <ContactsIcon />
                         </IconButton>
+                        <IconButton>
+                            <ChatIcon onClick={slideRight}/>
+                        </IconButton>
+                        <IconButton>
+                            <ExitToAppIcon onClick={signOut}/>
+                        </IconButton>
                     </Link>
                 </div>
-                < Link to={`/account/`}>
-                    <Avatar src={user?.photoURL} />
-                </ Link>
             </div>
-            <Tabs  className='sidebar__headerRight' defaultActiveKey="profile" id="uncontrolled-tab-example" variant='pills' >
-                <Tab eventKey="chat" title={<IconButton><GroupIcon /></IconButton>}>
+            {/* <Tabs  className='sidebar__headerRight' defaultActiveKey="profile" id="uncontrolled-tab-example" variant='pills' >
+                <Tab eventKey="chat" title={<IconButton><GroupIcon /></IconButton>}> */}
                     <div className='sidebar__chats'>
 
                         <SidebarChat addNewChat />
@@ -54,11 +73,11 @@ export default function Sidebar() {
                         ))}
 
                     </div>
-                </Tab>
+                {/* </Tab>
                 <Tab eventKey="dm" title={<IconButton><ChatIcon /></IconButton>}>
                     <DirectMessages />
                 </Tab>
-            </Tabs>
+            </Tabs> */}
         </div>
     )
 }
