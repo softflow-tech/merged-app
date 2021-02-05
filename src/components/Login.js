@@ -7,7 +7,9 @@ import { actionTypes } from './reducer';
 import { useStateValue } from "./StateProvider"
 
 import db from '../firebase'
-
+import firebase from 'firebase'
+var firebaseui = require('firebaseui');
+const ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 export default function Login(){
     const createUser = (uid,email, displayName, photoURL) => {
@@ -15,7 +17,7 @@ export default function Login(){
             uid: uid,
             email: email,
             displayName: displayName,
-            photoURL: photoURL,
+            photoURL: photoURL || `https://avatars.dicebear.com/api/human/${uid}.svg?background=%23ebf1ff`,
             friends: [],
             messages: [],
         }).then(() => {
@@ -26,6 +28,36 @@ export default function Login(){
     };
 
     const [{} , dispatch ]  = useStateValue();
+
+    var uiConfig = {
+        callbacks: {
+            signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+                dispatch({
+                    type: actionTypes.SET_USER,
+                    user: authResult.user,
+                });
+                // if (!db.collection('users').doc(authResult.user.uid)){
+                    createUser(authResult.user.uid,authResult.user.email, authResult.user.displayName, authResult.user.photoURL)
+                // };
+                return true;
+            },
+            uiShown: function() {
+                document.getElementById('loader').style.display = 'none';
+            }
+        },
+        // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+        signInFlow: 'popup',
+        // signInSuccessUrl: '/account',
+        signInOptions: [
+            firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        ],
+        // Terms of service url.
+        // tosUrl: '<your-tos-url>',
+        // Privacy policy url.
+        // privacyPolicyUrl: '<your-privacy-policy-url>'
+    };
+    
+    ui.start('#firebaseui-auth-container', uiConfig);
 
     const signIn = () => {
         auth
@@ -48,6 +80,8 @@ export default function Login(){
                 <div className='login__text'>
                     <h1>Sign into ChatiZone</h1>
                 </div>
+                <div id="firebaseui-auth-container"></div>
+                <div id="loader">Loading...</div>
                 <Button onClick={signIn}>Login with Google</Button>
             </div>
         </div>

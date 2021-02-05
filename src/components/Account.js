@@ -9,10 +9,12 @@ import '../css/Account.css'
 import { useStateValue } from "../components/StateProvider";
 
 export default function Account() {
-    const { accountId } = useParams();
+    let { accountId } = useParams();
     const [{user}, dispatch ] = useStateValue();
     const [ userDetails , setUserDetails ] = useState("");
-
+    if (accountId === undefined){
+        accountId = user.email
+    }
     const slideRight = () => {
         document.getElementById('root').style.left = '-100%';
         document.getElementById('root').style.animation = 'slide-in 1s';
@@ -42,39 +44,42 @@ export default function Account() {
     //         photoURL: user.photoURL,
     //     })
     // }
-
-    return accountId?(
+    if (accountId !== user.email){
+        return (
+            <div className='account'>
+                <div className='account__header'>
+                    <img src={userDetails?.photoURL} alt='profile_picture' />
+                    <h1>{userDetails.displayName}</h1>
+                    
+                </div>
+                <div className='account__info'>
+                    <h2>Account information: </h2>
+                    <p><b>Email: </b>{userDetails.email}</p>
+                    {
+                        <IconButton>
+                            <ChatIcon onClick={slideRight}/>
+                        </IconButton>
+                    }
+                    {/* <p><b>Last Login: </b>{user.metadata.lastSignInTime}</p> */}
+                </div>
+    
+            </div>
+        )
+    } else {
+        return(
         <div className='account'>
             <div className='account__header'>
                 <img src={userDetails?.photoURL} alt='profile_picture' />
                 <h1>{userDetails.displayName}</h1>
-                
+                    
             </div>
             <div className='account__info'>
                 <h2>Account information: </h2>
                 <p><b>Email: </b>{userDetails.email}</p>
-                {
-                    <IconButton>
-                        <ChatIcon onClick={slideRight}/>
-                    </IconButton>
-                }
-                {/* <p><b>Last Login: </b>{user.metadata.lastSignInTime}</p> */}
+                <p><b>Last Login: </b>{user.metadata.lastSignInTime}</p>
             </div>
 
         </div>
-    ):(
-        <div className='account'>
-        <div className='account__header'>
-            <img src={user?.photoURL} alt='profile_picture' />
-            <h1>{user.displayName}</h1>
-            
-        </div>
-        <div className='account__info'>
-            <h2>Account information: </h2>
-            <p><b>Email: </b>{user.email}</p>
-            <p><b>Last Login: </b>{user.metadata.lastSignInTime}</p>
-        </div>
-
-    </div>
-    )
+        )
+    }
 }

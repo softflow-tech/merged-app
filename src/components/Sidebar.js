@@ -37,7 +37,7 @@ export default function Sidebar() {
       };
 
     const signOut = () => {
-        firebase.auth().signOut();
+        // firebase.auth().signOut();
         window.location.reload(false);
     }
 
