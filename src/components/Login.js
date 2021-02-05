@@ -17,7 +17,7 @@ export default function Login(){
             uid: uid,
             email: email,
             displayName: displayName,
-            photoURL: photoURL || `https://avatars.dicebear.com/api/human/${uid}.svg?background=%23ebf1ff`,
+            photoURL: photoURL || `https://avatars.dicebear.com/api/gridy/${uid}.svg?background=%23ebf1ff`,
             friends: [],
             messages: [],
         }).then(() => {

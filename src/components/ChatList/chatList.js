@@ -60,7 +60,8 @@ class ChatListComponent extends React.Component {
                         {i = _chat.users.filter(_user => _user !== this.props.userEmail)[0]}
                       </Typography>
                       <ListItemAvatar>
-                        <Avatar alt="Remy Sharp">{_chat.users.filter(_user => _user !== this.props.userEmail)[0].split('')[0]}</Avatar>
+                        {userImage(i)}
+                        <Avatar id={`image-${i}`} src={`${userImage(i)}`} alt={`${i}`}/>
                       </ListItemAvatar>
                       <ListItemText
                         primary={
@@ -133,6 +134,20 @@ function userFromEmail(em) {
     })
 }
 
+
+function userImage(em) {
+  firebase
+    .firestore()
+    .collection('users')
+    .doc(em)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        // document.getElementById(`image-${em}`).alt = doc.data().photoURL;
+        return doc.data().photoURL;
+      }
+    })
+}
 
 export default withStyles(styles)(ChatListComponent);
 
