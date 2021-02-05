@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import EmailIcon from '@material-ui/icons/Email';
 import ChatIcon from '@material-ui/icons/Chat';
-import { Avatar, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
 import db from '../firebase'
@@ -20,12 +20,12 @@ export default function Account() {
     if (accountId === undefined) {
         accountId = user.email
     }
-    
+
     db.collection('users').doc(accountId).get().then((doc) => {
-            setExists(doc.exists);
-            console.log('HELLOOO',doc)
+        setExists(doc.exists);
+        console.log('HELLOOO', doc)
     })
-    
+
     db.collection('users').doc(user.email).collection('friends').doc(accountId).get().then((doc) => {
         if (doc.data()) {
             setFriends("true");
@@ -66,8 +66,8 @@ export default function Account() {
         setFriends('false');
     }
 
-    if (!exist){
-        return(
+    if (!exist) {
+        return (
             <div className='account'>
                 <div className='account__header'>
                     <img src='https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255710-stock-illustration-avatar-vector-male-profile-gray.jpg' alt='profile_picture' />
@@ -75,17 +75,22 @@ export default function Account() {
                 </div>
             </div>
         )
-    }else if (accountId !== user.email && exist) {
+    } else if (accountId !== user.email && exist) {
         return (
             <div className='account'>
                 <div className='account__header'>
-                    <img src={userDetails?.photoURL} alt='profile_picture' />
-                    <h1>{userDetails.displayName}</h1>
+                    <div className='imgContainer'>
+                        <img src={userDetails?.photoURL} alt='profile_picture' />
+                    </div>
+                    <h1></h1>
 
                 </div>
                 <div className='account__info'>
-                    <h2>Account information: </h2>
-                    <p><b>Email: </b>{userDetails.email}</p>
+                    <br />
+                    <h1>{userDetails.displayName}</h1>
+                    <br />
+                    {/* <h2>Account information: </h2> */}
+                    <p><b><EmailIcon style={{ fontSize: 200 }} /> </b>{userDetails.email}</p>
                     <IconButton>
                         <ChatIcon onClick={slideRight} />
                     </IconButton>
@@ -101,13 +106,18 @@ export default function Account() {
         return (
             <div className='account'>
                 <div className='account__header'>
-                    <img src={userDetails?.photoURL} alt='profile_picture' />
-                    <h1>{userDetails.displayName}</h1>
+                    <div className='imgContainer'>
+                        <img src={userDetails?.photoURL} alt='profile_picture' />
+                    </div>
+                    <h1></h1>
 
                 </div>
                 <div className='account__info'>
-                    <h2>Account information: </h2>
-                    <p><b>Email: </b>{userDetails.email}</p>
+                    <br />
+                    <h1>{userDetails.displayName}</h1>
+                    <br />
+                    {/* <h2>Account information: </h2> */}
+                    <p><b><EmailIcon style={{ fontSize: 200 }} /> </b>{userDetails.email}</p>
                     <p><b>Last Login: </b>{user.metadata.lastSignInTime}</p>
                 </div>
             </div>
