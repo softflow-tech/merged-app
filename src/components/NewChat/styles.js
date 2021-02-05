@@ -15,7 +15,7 @@ const styles = theme => ({
       position: 'absolute',
       color: '#d1d2d3',
       width: '350px',
-      top: '50px',
+      top: '105px',
       left: 'calc(50% + 150px - 175px)',
       border: `solid 1px #333539`,
       background: `#1a1d21`,

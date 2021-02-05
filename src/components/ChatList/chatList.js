@@ -77,7 +77,7 @@ class ChatListComponent extends React.Component {
                         secondary={
                           <React.Fragment>
                             <Typography component='span'
-                              color='#d1d2d3'>
+                              color='inherit' id={`bla${i}`} >
                               {_chat.messages[_chat.messages.length - 1].message.substring(0, 30) + ' ...'}
                             </Typography>
                           </React.Fragment>
@@ -141,10 +141,11 @@ function userFromEmail(em) {
     .then((doc) => {
       if (doc.exists) {
         document.getElementById(`blabla${em}`).innerText = doc.data().displayName;
-
+        document.getElementById(`bla${em}`).style.color = '#d1d2d3';
       } else {
         // doc.data() will be undefined in this case
         document.getElementById(`blabla${em}`).innerText = 'anonymous';
+        document.getElementById(`bla${em}`).style.color = '#d1d2d3';
       }
     })
 }

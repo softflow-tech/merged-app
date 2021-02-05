@@ -19,6 +19,7 @@ class NewChatComponent extends React.Component {
 
     return(
       <main className={classes.main}>
+
         <CssBaseline/>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h5">Send A Message!</Typography>
