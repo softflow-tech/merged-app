@@ -78,3 +78,37 @@
     color: gray;
     font-size: 25px !important;
 }
+
+.contacts__search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+    border-top: 1px solid lightgray;
+}
+
+.contacts__search form {
+    flex: 1;
+    display: flex;
+
+}
+
+.contacts__search form input{
+    flex: 1;
+    border-radius: 30px;
+    padding: 10px;
+    border: none;
+    margin-left: 1vw;
+}
+.contacts__search form input:focus{
+    outline: none;
+}
+.contacts__search form  button{
+    border: none;
+    background-color: inherit;
+}
+
+.contacts__search > .MuiSvgIcon-root{
+    margin: 10px;
+    color: gray;
+}

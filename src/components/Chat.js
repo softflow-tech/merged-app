@@ -4,6 +4,7 @@ import { Avatar , IconButton } from "@material-ui/core";
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SendIcon from '@material-ui/icons/Send';
+import { Link } from 'react-router-dom'
 
 import db , {firebaseApp} from '../firebase'
 import firebase from 'firebase'
@@ -88,7 +89,7 @@ export default function Chat(){
                 </div>
             </div>
             <div className='chat__body'>
-                {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+                {messages && messages.map(msg =><ChatMessage key={msg.id} message={msg} />)}
                 <span ref={dummy}></span>
             </div>   
             <div className='chat__footer'>
@@ -109,9 +110,13 @@ export default function Chat(){
     const messageClass = email === user.email ? 'chat__receiver' : 'false';
     console.log(props.message)
     return (<>
+
       <div className={`chat__message ${messageClass}`}>
             <span className='chat__name'>
-                {displayName}
+                < Link to={`/account/${email}`}>
+                    <Avatar src={`https://avatars.dicebear.com/api/gridy/HELLOHADI.svg?background=%23ebf1ff`}/>
+                    {displayName}
+                </Link> 
             </span>
             {text}
       </div>
