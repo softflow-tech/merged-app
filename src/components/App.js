@@ -16,15 +16,15 @@ import '../css/App.css'
 
 function App() {
 
-  const slideR = () => {
-    var boxOne = document.getElementById('root')
-        boxOne.classList.add('horizTranslate');
-        var computedStyle = window.getComputedStyle(boxOne),
-        Left = computedStyle.getPropertyValue('left');
-        boxOne.style.left = Left;
-        boxOne.classList.remove('horizTranslate');    
+  // const slideR = () => {
+  //   var boxOne = document.getElementById('root')
+  //       boxOne.classList.add('horizTranslate');
+  //       var computedStyle = window.getComputedStyle(boxOne),
+  //       Left = computedStyle.getPropertyValue('left');
+  //       boxOne.style.left = Left;
+  //       boxOne.classList.remove('horizTranslate');    
     
-  };
+  // };
 
   const slideRight = () => {
     document.getElementById('root').style.left = '-100%';

@@ -103,7 +103,7 @@ export default function Chat(){
 
   
   function ChatMessage(props) {
-    const { text, createdAt, email, displayName } = props.message;
+    const { text, email, displayName } = props.message;
     const [{user}, dispatch ] = useStateValue();
 
     const messageClass = email === user.email ? 'chat__receiver' : 'false';

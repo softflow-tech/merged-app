@@ -4,7 +4,7 @@ import ChatListComponent from '../ChatList/chatList';
 import ChatViewComponent from '../ChatView/chatView';
 import ChatTextBoxComponent from '../ChatTextBox/chatTextBox';
 import styles from './styles';
-import { Button, withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 import { firebase } from '@firebase/app';
 
 // I need to investigate why sometimes
@@ -39,7 +39,7 @@ class DashboardComponent extends React.Component {
         border:"1px solid black",
         backgroundColor: 'white',
         position: 'absolute',
-        overflow: 'hidden !important',
+        // overflow: 'hidden !important',
         left: '120%',
         top: '5%',
         marginRight: '40%',
