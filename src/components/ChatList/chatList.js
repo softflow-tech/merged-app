@@ -67,7 +67,7 @@ class ChatListComponent extends React.Component {
                         primary={
                           <React.Fragment>
                             <Typography component='span'
-                              color='textPrimary' id={`blabla${i}`}>
+                              color='#d1d2d3' id={`blabla${i}`}>
                               {userFromEmail(i)}
                             </Typography>
                           </React.Fragment>
@@ -77,7 +77,7 @@ class ChatListComponent extends React.Component {
                         secondary={
                           <React.Fragment>
                             <Typography component='span'
-                              color='textPrimary'>
+                              color='#d1d2d3'>
                               {_chat.messages[_chat.messages.length - 1].message.substring(0, 30) + ' ...'}
                             </Typography>
                           </React.Fragment>

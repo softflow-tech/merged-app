@@ -1,17 +1,113 @@
 .login{
-    background-color: #f8f8f8;
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    place-items: center;
+    display: flex;
+    width: 500px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 20px 0px rgb(0 0 0 / 10%);
+    -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 3px 20px 0px rgb(0 0 0 / 10%);
+    -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
+.login h1 {
+    display: block;
+    font-family: SourceSansPro-Bold;
+    font-size: 30px;
+    color: #4b2354;
+    line-height: 1.2;
+    text-align: center;
+    font-weight: 900;
+    
+}
+
+.login input {
+    font-family: SourceSansPro-Bold;
+    font-size: 16px;
+    color: #4b2354;
+    line-height: 1.2;
+    display: block;
+    width: 80%;
+    height: 62px;
+    background: transparent;
+    padding: 0 20px 0 23px;
+
+    outline: none;
+
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    
+    overflow: visible;
+    touch-action: manipulation;
+    box-sizing: border-box;
+    font: 400 13.3333px Arial;
+    
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+
+    box-shadow: 0 5px 30px 0px rgb(0 0 0 / 10%);
+    -moz-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 30px 0px rgb(0 0 0 / 10%);
+    -o-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 30px 0px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+
+}
+
+
+.login button {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 160px;
+    height: 50px;
+    background-color: #bd59d4;
+    border-radius: 25px;
+    font-family: SourceSansPro-SemiBold;
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    box-shadow: 0 10px 30px 0px rgb(189 89 212 / 50%);
+    -moz-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
+    -webkit-box-shadow: 0 10px 30px 0px rgb(189 89 212 / 50%);
+    -o-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
+    -ms-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
+
+    outline: none !important;
+    border: none;
+    background: transparent;
+
+    margin: 0;
+}
 .login__container {
-    padding: 100px;
+    display: flex;
+    width: 100%;
+    min-height: 468px;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    padding: 31px 37px;
+    align-items: center;
     text-align: center;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 1px 3px rgb(34, 34, 34);
+    box-shadow: 0 1px 3px rgb(34 34 34);
 }
 
 .login__container button {
@@ -19,4 +115,66 @@
     text-transform: inherit !important;
     background-color: rgb(119, 119, 255) !important;
     color: white;
+}
+
+.login__text{
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+
+.firebaseui-form-actions{
+    margin: 10px !important;
+    display: flex;
+    width: 340px;
+    align-items: center;
+    justify-content: center;
+}
+
+.firebaseui-card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.firebaseui-input{
+    display: block;
+    margin: auto;
+}
+
+.firebaseui-textfield, .mdl-textfield__input{
+    width: 100%;
+}
+
+#googleLog{
+    font-size: 25px;
+    color: #3b5998;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 5px;
+    box-shadow: 0 5px 20px 0px rgb(0 0 0 / 10%);
+    -moz-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 20px 0px rgb(0 0 0 / 10%);
+    -o-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+#googleLog:hover{
+    cursor: pointer;
+    box-shadow: 0 5px 20px 8px rgb(0 0 0 / 10%);
+    -moz-box-shadow: 0 5px 20px 8px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 20px 8px rgb(0 0 0 / 10%);
+    -o-box-shadow: 0 5px 20px 8px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 20px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    margin-top: -10px;
+
 }

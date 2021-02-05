@@ -82,7 +82,12 @@ export default function Login(){
                 </div>
                 <div id="firebaseui-auth-container"></div>
                 <div id="loader">Loading...</div>
-                <Button onClick={signIn}>Login with Google</Button>
+                <p>Or login with</p>
+
+                <div onClick={signIn} id="googleLog">
+                    <img src="icon-google.png" alt="GOOGLE" />
+                </div>
+				
             </div>
         </div>
     );
