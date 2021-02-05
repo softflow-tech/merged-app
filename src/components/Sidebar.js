@@ -46,7 +46,7 @@ export default function Sidebar() {
         <div className='sidebar'>
             {/* <h1>sidebar</h1> */}
             <div className='sidebar__header'>
-                < Link to={`/account/`}>
+                < Link to={`/account/${user.email}`}>
                     <Avatar src={user?.photoURL} />
                 </ Link>
                 <div className='sidebar__headerRight'>
