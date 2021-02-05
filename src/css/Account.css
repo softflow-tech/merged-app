@@ -15,8 +15,11 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    background-color: lightsteelblue;
-    border-bottom: 1px solid rgba(211, 211, 211, 0.267);
+    background-color: rgb(12, 109, 189);
+    border-bottom: 1px solid rgba(207, 14, 111, 0.267);
+    background-image: url('https://wallpapercave.com/wp/wp4410728.jpg');
+    
+
 }
 
 .account__header img{
@@ -24,17 +27,34 @@
     width: 30%;
     height: 16vh;
     align-self: center;
+ 
     margin: 5% 0;
-    border-radius: 25%;
+    
     box-shadow: 1px 2px gray;
+    border-radius: 50%;
+}
+
+.imgContainer img{
+  margin-left: 50px; 
+ border:solid white 5px;
+  transform: translate(100px,100px); 
 }
 
 .account__header h1{
+   
     margin-bottom: 5%;
     text-shadow: 1px 1px gray;
+    color: rgb(9, 10, 10);
 }
 
 .account__info{
     flex: 0.9;
     padding: 10%;
+}
+.account__info h1{
+    margin-left:100px;
+}
+.account__info p {
+    margin-left: 50px;
+  
 }
