@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import EmailIcon from '@material-ui/icons/Email';
 import ChatIcon from '@material-ui/icons/Chat';
 import { Avatar, IconButton } from "@material-ui/core";
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
@@ -9,6 +10,7 @@ import '../css/Account.css'
 import { useStateValue } from "../components/StateProvider";
 
 export default function Account() {
+
     let { accountId } = useParams();
     const [{ user }, dispatch] = useStateValue();
     const [userDetails, setUserDetails] = useState("");
@@ -38,11 +40,11 @@ export default function Account() {
         //get the text by id or predefined or however you wish or passed to function
         var txt = userDetails.email;
 
+
         setTimeout(() => { document.getElementById("new-chat-username").focus(); }, 1300);
-
-
         document.getElementById("new-chat-username").value = txt;
     };
+
 
     useEffect(() => {
         const unsubscribe = db.collection('users').doc(accountId).onSnapshot((snapshot) => setUserDetails(snapshot.data()));
@@ -51,6 +53,7 @@ export default function Account() {
             unsubscribe();
         }
     }, []);
+
 
     const addFriend = () => {
         db.collection('users').doc(user.email).collection('friends').doc(accountId).set({
@@ -107,7 +110,6 @@ export default function Account() {
                     <p><b>Email: </b>{userDetails.email}</p>
                     <p><b>Last Login: </b>{user.metadata.lastSignInTime}</p>
                 </div>
-
             </div>
         )
     }
