@@ -48,24 +48,24 @@ export default function Chat(){
         dummy.current.scrollIntoView({ behavior: 'smooth' });
     }
 
-    const attach = async (e) => {
-        e.preventDefault();
-        const file = e.target.files[0];
-        const storageRef = firebaseApp.ref()
-        const fileRef = storageRef.child(file.name)
-        fileRef.put(file)
-        const { email, displayName } = user;
+    // const attach = async (e) => {
+    //     e.preventDefault();
+    //     const file = e.target.files[0];
+    //     const storageRef = firebaseApp.ref()
+    //     const fileRef = storageRef.child(file.name)
+    //     fileRef.put(file)
+    //     const { email, displayName } = user;
   
-        await messagesRef.add({
-            text: formValue,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            email,
-            displayName
-        })
+    //     await messagesRef.add({
+    //         text: formValue,
+    //         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    //         email,
+    //         displayName
+    //     })
   
-        setFormValue('');
-        dummy.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    //     setFormValue('');
+    //     dummy.current.scrollIntoView({ behavior: 'smooth' });
+    // }
 
 
     return(
@@ -74,14 +74,10 @@ export default function Chat(){
                 <Avatar src={room.imageURL} />
                 <div className='chat__headerInfo'>
                     <h3>{room.name}</h3>
-                    {/* <p>Last seen</p> */}
                 </div>
                 <div className='chat__headerRight'>
-                    {/* <IconButton>
-                        <SearchOutlinedIcon />
-                    </IconButton> */}
                     <IconButton>
-                        <AttachFileIcon onclick={attach} />
+                        <AttachFileIcon />
                     </IconButton>  
                     <IconButton>
                         <MoreVertIcon />
