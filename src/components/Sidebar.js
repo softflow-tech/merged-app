@@ -69,7 +69,7 @@ export default function Sidebar() {
 
                         <SidebarChat addNewChat />
                         {rooms.map(room => (
-                            <SidebarChat key={room.id} id={room.id} name={room.data.name} />
+                            <SidebarChat key={room.id} id={room.id} name={room.data.name} url={room.data.imageURL} />
                         ))}
 
                     </div>
