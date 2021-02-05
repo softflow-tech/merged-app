@@ -23,8 +23,8 @@ class NewChatComponent extends React.Component {
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h5">Send A Message!</Typography>
           <form className={classes.form} onSubmit={(e) => this.submitNewChat(e)}>
-            <FormControl fullWidth>
-              <InputLabel htmlFor='new-chat-username'>
+            <FormControl fullWidth >
+              <InputLabel htmlFor='new-chat-username' style={{color:'#d1d2d3'}}>
                   Enter Your Friend's Email
               </InputLabel>
               <Input required 
@@ -34,8 +34,8 @@ class NewChatComponent extends React.Component {
                 id='new-chat-username'>
               </Input>
             </FormControl>
-            <FormControl fullWidth>
-              <InputLabel htmlFor='new-chat-message'>
+            <FormControl fullWidth >
+              <InputLabel htmlFor='new-chat-message' style={{color:'#d1d2d3'}}>
                   Enter Your Message
               </InputLabel>
               <Input required 

@@ -13,15 +13,20 @@ const styles = theme => ({
     paper: {
       padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
       position: 'absolute',
+      color: '#d1d2d3',
       width: '350px',
       top: '50px',
-      left: 'calc(50% + 150px - 175px)'
+      left: 'calc(50% + 150px - 175px)',
+      border: `solid 1px #333539`,
+      background: `#1a1d21`,
     },
     input: {
+      color: 'whitesmoke',
     },
     form: {
       width: '100%',
       marginTop: theme.spacing.unit,
+      color: 'whitesmoke',
     },
     submit: {
       marginTop: theme.spacing.unit * 3

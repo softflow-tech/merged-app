@@ -61,13 +61,13 @@ class ChatListComponent extends React.Component {
                       </Typography>
                       <ListItemAvatar>
                         {userImage(i)}
-                        <Avatar id={`image-${i}`} src={`${userImage(i)}`} alt={`${i}`}/>
+                        <Avatar id={`image-${i}`} src={`https://avatars.dicebear.com/api/gridy/${avataImage(_chat.users.filter(_user => _user !== this.props.userEmail)[0])}.svg?background=%23ebf1ff`} alt={`${i}`}/>
                       </ListItemAvatar>
                       <ListItemText
                         primary={
                           <React.Fragment>
                             <Typography component='span'
-                              color='textPrimary' id={`blabla${i}`}>
+                              color='#d1d2d3' id={`blabla${i}`}>
                               {userFromEmail(i)}
                             </Typography>
                           </React.Fragment>
@@ -77,7 +77,7 @@ class ChatListComponent extends React.Component {
                         secondary={
                           <React.Fragment>
                             <Typography component='span'
-                              color='textPrimary'>
+                              color='#d1d2d3'>
                               {_chat.messages[_chat.messages.length - 1].message.substring(0, 30) + ' ...'}
                             </Typography>
                           </React.Fragment>
@@ -125,6 +125,13 @@ class ChatListComponent extends React.Component {
 
 }
 var i;
+
+function avataImage(params) {
+  var sequence = params
+  var matches = sequence.match(/[A-z]/g);
+  return(matches.join(''));
+}
+
 function userFromEmail(em) {
   firebase
     .firestore()

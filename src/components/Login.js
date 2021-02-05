@@ -17,7 +17,7 @@ export default function Login(){
             uid: uid,
             email: email,
             displayName: displayName,
-            photoURL: photoURL || `https://avatars.dicebear.com/api/gridy/${uid}.svg?background=%23ebf1ff`,
+            photoURL: `https://avatars.dicebear.com/api/gridy/${avataImage(email)}.svg?background=%23ebf1ff`,
             friends: [],
             messages: [],
         }).then(() => {
@@ -82,8 +82,19 @@ export default function Login(){
                 </div>
                 <div id="firebaseui-auth-container"></div>
                 <div id="loader">Loading...</div>
-                <Button onClick={signIn}>Login with Google</Button>
+                <p>Or login with</p>
+
+                <div onClick={signIn} id="googleLog">
+                    <img src="icon-google.png" alt="GOOGLE" />
+                </div>
+				
             </div>
         </div>
     );
+}
+
+function avataImage(params) {
+    var sequence = params
+    var matches = sequence.match(/[A-z]/g);
+    return(matches.join(''));
 }

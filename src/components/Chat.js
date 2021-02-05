@@ -98,8 +98,14 @@ export default function Chat(){
     );
 }
 
+function avataImage(params) {
+    var sequence = params
+    var matches = sequence.match(/[A-z]/g);
+    return(matches.join(''));
+}
   
-  function ChatMessage(props) {
+  
+function ChatMessage(props) {
     const { text, email, displayName } = props.message;
     const [{user}, dispatch ] = useStateValue();
 
@@ -107,15 +113,15 @@ export default function Chat(){
     console.log(props.message)
     return (<>
 
-      <div className={`chat__message ${messageClass}`}>
+        <div className={`chat__message ${messageClass}`}>
             <span className='chat__name'>
                 < Link to={`/account/${email}`}>
-                    <Avatar src={`https://avatars.dicebear.com/api/gridy/HELLOHADI.svg?background=%23ebf1ff`}/>
-                    {displayName}
+                    <Avatar src={`https://avatars.dicebear.com/api/gridy/${avataImage(email)}.svg?background=%23ebf1ff`}/>
+                    <p className="displayNames">{displayName}</p>
                 </Link> 
             </span>
             {text}
-      </div>
+        </div>
     </>)
-  }
+}
   
