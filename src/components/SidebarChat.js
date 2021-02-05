@@ -29,13 +29,13 @@ export default function SidebarChat({id, name, url, addNewChat}) {
     // };
 
     const createRoom = async (e) => {
-        e.preventDefault();
-  
+        e.preventDefault(); 
         db.collection('rooms').add({
             name: nameValue,
             imageURL: imageValue,
         })
-  
+        setImageValue('');
+        setNameValue('');
     }
 
     return !addNewChat ? (
@@ -80,7 +80,7 @@ export default function SidebarChat({id, name, url, addNewChat}) {
                         <Button variant="secondary" onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary" type="submit" onClick={createRoom}>
+                        <Button variant="primary" type="submit" onClick={createRoom} >
                             Create Room
                         </Button>
                     </Modal.Footer>

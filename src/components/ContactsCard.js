@@ -32,8 +32,7 @@ export default function ContactsCard({id, name, addNewContact, userDetails}) {
         </div>
     ) : (
        <div onClick={findFriend} className='contactCard'>
-           <h2 className='find'><PersonAddIcon /> Find Friends</h2>
-           
+           <h2 className='find'><PersonAddIcon /> Find Friends</h2>  
        </div> 
     )
 }

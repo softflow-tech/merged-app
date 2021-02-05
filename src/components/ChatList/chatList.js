@@ -99,13 +99,21 @@ class ChatListComponent extends React.Component {
     } else {
       return (
         <div className={classes.root}>
-          <Button variant="contained"
+          <div className='sidebar__header'>
+            <div className='sidebar__headerRight' style={{ width: '100%', height: '100%', fontSize: 'large !important', display: 'flex', justifyContent: 'space-evenly' }}>
+              <IconButton >
+                <AddCircleIcon onClick={this.newChat} id='potato' />
+              </IconButton>
+              <IconButton >
+                <ExitToAppIcon onClick={this.signOut} />
+              </IconButton>
+            </div>
+          </div>
+          <div variant="contained"
             fullWidth
             color='primary'
-            onClick={this.newChat}
-            className={classes.newChatBtn}>
-            New Message
-          </Button>
+            style={{ height: '8px', backgroundColor: '#3f51b5' }}>
+          </div>
           <List></List>
         </div>
       );
