@@ -37,7 +37,7 @@ export default function Sidebar() {
       };
 
     const signOut = () => {
-        firebase.auth().signOut();
+        // firebase.auth().signOut();
         window.location.reload(false);
     }
 
@@ -46,7 +46,7 @@ export default function Sidebar() {
         <div className='sidebar'>
             {/* <h1>sidebar</h1> */}
             <div className='sidebar__header'>
-                < Link to={`/account/`}>
+                < Link to={`/account/${user.email}`}>
                     <Avatar src={user?.photoURL} />
                 </ Link>
                 <div className='sidebar__headerRight'>
@@ -69,7 +69,7 @@ export default function Sidebar() {
 
                         <SidebarChat addNewChat />
                         {rooms.map(room => (
-                            <SidebarChat key={room.id} id={room.id} name={room.data.name} />
+                            <SidebarChat key={room.id} id={room.id} name={room.data.name} url={room.data.imageURL} />
                         ))}
 
                     </div>

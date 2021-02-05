@@ -4,7 +4,7 @@ import ChatListComponent from '../ChatList/chatList';
 import ChatViewComponent from '../ChatView/chatView';
 import ChatTextBoxComponent from '../ChatTextBox/chatTextBox';
 import styles from './styles';
-import { Button, withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 import { firebase } from '@firebase/app';
 
 // I need to investigate why sometimes
@@ -21,7 +21,7 @@ class DashboardComponent extends React.Component {
     super();
     this.state = {
       selectedChat: null,
-      newChatFormVisible: false,
+      newChatFormVisible: true,
       email: null,
       friends: [],
       chats: []
@@ -36,13 +36,15 @@ class DashboardComponent extends React.Component {
       return(
         <div className='dashboard-container' id='dashboard-container' style={{ display: 'flex',
         backgroundcolor: 'blue',
-        border:"1px solid black",
-        // background: "#454343",
-        backgroundColor: 'white',
+        backgroundColor: '#1a1d21',
         position: 'absolute',
+        // overflow: 'hidden !important',
         left: '120%',
         top: '5%',
+        color: 'whitesmoke',
         marginRight: '40%',
+        minHeight: '450px',
+        minWidth: '700px',
         height: '90vh',
         width: '60%',
         overflow: "auto",
@@ -66,7 +68,7 @@ class DashboardComponent extends React.Component {
           {
             this.state.newChatFormVisible ? <NewChatComponent goToChatFn={this.goToChat} newChatSubmitFn={this.newChatSubmit}></NewChatComponent> : null
           }
-          <Button variant='contained' color='primary'  onClick={this.signOut} className={classes.signOutBtn}>Sign Out</Button>
+          <div variant='contained' color='primary' className={classes.signOutBtn}></div>
         </div>
       );
     } else {

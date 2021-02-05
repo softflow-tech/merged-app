@@ -1,3 +1,23 @@
+a {
+    text-decoration: inherit;
+    color: whitesmoke;
+}
+
+a:hover {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+a:focus {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+a:active {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
 
 .app{
     display: grid;
@@ -11,10 +31,16 @@
 .app__body{
     display: flex;
     background-color: whitesmoke;
-    margin-top: -50px;
     height: 90vh;
     width: 90vh;
     box-shadow: -1px 4px 20px -6px black;
+
+    min-height: 450px;
+    min-width: 700px;
+    height: 90vh;
+    /* width: 60%; */
+    overflow: auto;
+    box-shadow: black -1px 4px 20px -6px;
 }
 
 .arrow {

@@ -7,6 +7,8 @@ const styles = theme => ({
       left: '0',
       width: '300px',
       boxShadow: '0px 0px 2px black',
+      backgroundColor: '#130f19',
+      color: '#d1d2d3',
 
     },
     listItem: {

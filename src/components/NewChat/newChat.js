@@ -23,19 +23,19 @@ class NewChatComponent extends React.Component {
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h5">Send A Message!</Typography>
           <form className={classes.form} onSubmit={(e) => this.submitNewChat(e)}>
-            <FormControl fullWidth>
-              <InputLabel htmlFor='new-chat-username'>
+            <FormControl fullWidth >
+              <InputLabel htmlFor='new-chat-username' style={{color:'#d1d2d3'}}>
                   Enter Your Friend's Email
               </InputLabel>
               <Input required 
                 className={classes.input}
-                autoFocus 
+                // autoFocus 
                 onChange={(e) => this.userTyping('username', e)} 
                 id='new-chat-username'>
               </Input>
             </FormControl>
-            <FormControl fullWidth>
-              <InputLabel htmlFor='new-chat-message'>
+            <FormControl fullWidth >
+              <InputLabel htmlFor='new-chat-message' style={{color:'#d1d2d3'}}>
                   Enter Your Message
               </InputLabel>
               <Input required 
@@ -57,7 +57,17 @@ class NewChatComponent extends React.Component {
       </main>
     );
   }
-
+  
+  // validURL(str) {
+  //   var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+  //     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+  //     '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+  //     '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+  //     '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+  //     '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  //   return !!pattern.test(str);
+  // }
+  
   componentWillMount() {
     if(!firebase.auth().currentUser)
       this.props.history.push('/login');

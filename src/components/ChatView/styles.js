@@ -14,42 +14,45 @@ const styles = theme => ({
     },
   
     userSent: {
-      float: 'left',
-      clear: 'both',
-      padding: '20px',
-      boxSizing: 'border-box',
-      wordWrap: 'break-word',
-      marginTop: '10px',
-      backgroundColor: '#707BC4',
-      color: 'white',
-      width: '300px',
-      borderRadius: '10px'
-    },
-  
-    friendSent: {
       float: 'right',
       clear: 'both',
       padding: '20px',
       boxSizing: 'border-box',
       wordWrap: 'break-word',
       marginTop: '10px',
-      backgroundColor: '#707BC4',
+      backgroundColor: 'whitesmoke',
+      color: 'black',
+      width: '300px',
+      borderRadius: '20px'
+    },
+  
+    friendSent: {
+      float: 'left',
+      clear: 'both',
+      padding: '20px',
+      boxSizing: 'border-box',
+      wordWrap: 'break-word',
+      marginTop: '10px',
+      background: 'linear-gradient(63deg, rgba(52,65,149,1) 0%, rgba(39,45,88,1) 100%, rgba(33,35,59,1) 100%)',
       color: 'white',
       width: '300px',
-      borderRadius: '10px'
+      borderRadius: '20px'
     },
   
     chatHeader: {
-      // width: '35vw',
-      height: '50px',
-      backgroundColor: '#344195',
-      position: 'relative',
-      marginLeft: '301px',
-      fontSize: '18px',
-      textAlign: 'center',
       color: 'white',
-      paddingTop: '10px',
-      boxSizing: 'border-box'
+      height: '8%',
+      alignItems: 'center',
+      position: 'relative',
+      fontSize: '18px',
+      boxSizing: 'border-box',
+      textAlign: 'center',
+      marginLeft: '301px',
+      // background-color: #344195;
+      background: 'radial-gradient(circle, rgba(52,65,149,1) 0%, rgba(22,27,63,1) 99%)',
+      justifyContent: 'center',
+      display: 'flex',
+      borderBottom: '1px solid rgba(211, 211, 211, 0.267)',
     }
   
   });
