@@ -20,7 +20,7 @@ const styles = theme => ({
       boxSizing: 'border-box',
       wordWrap: 'break-word',
       marginTop: '10px',
-      backgroundColor: 'whitesmoke',
+      backgroundColor: '#d1d2d3',
       color: 'black',
       width: '300px',
       borderRadius: '20px'
@@ -33,7 +33,7 @@ const styles = theme => ({
       boxSizing: 'border-box',
       wordWrap: 'break-word',
       marginTop: '10px',
-      background: 'linear-gradient(63deg, rgba(52,65,149,1) 0%, rgba(39,45,88,1) 100%, rgba(33,35,59,1) 100%)',
+      background: '#3f51b5',
       color: 'white',
       width: '300px',
       borderRadius: '20px'
@@ -48,11 +48,9 @@ const styles = theme => ({
       boxSizing: 'border-box',
       textAlign: 'center',
       marginLeft: '301px',
-      // background-color: #344195;
-      background: 'radial-gradient(circle, rgba(52,65,149,1) 0%, rgba(22,27,63,1) 99%)',
+      background: '#3f51b5',
       justifyContent: 'center',
       display: 'flex',
-      borderBottom: '1px solid rgba(211, 211, 211, 0.267)',
     }
   
   });

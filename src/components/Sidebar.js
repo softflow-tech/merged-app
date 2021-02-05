@@ -47,7 +47,7 @@ export default function Sidebar() {
             {/* <h1>sidebar</h1> */}
             <div className='sidebar__header'>
                 < Link to={`/account/${user.email}`}>
-                    <Avatar src={user?.photoURL} />
+                    <Avatar src={`https://avatars.dicebear.com/api/gridy/${avataImage(user.email)}.svg?background=%23ebf1ff`}  />
                 </ Link>
                 <div className='sidebar__headerRight'>
                     <Link to='/contacts'>
@@ -80,4 +80,10 @@ export default function Sidebar() {
             </Tabs> */}
         </div>
     )
+}
+
+function avataImage(params) {
+    var sequence = params
+    var matches = sequence.match(/[A-z]/g);
+    return(matches.join(''));
 }
