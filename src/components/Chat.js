@@ -15,7 +15,7 @@ import { useStateValue } from "../components/StateProvider";
 export default function Chat(){
     const dummy = useRef();
     const { roomId } = useParams();
-    const [ roomName , setRoomName ] = useState("");
+    const [ room , setRoom ] = useState("");
     const [{user}, dispatch ] = useStateValue();
     const messagesRef = db.collection('rooms').doc(roomId).collection('messages');
     const query = messagesRef.orderBy('createdAt').limit(25);
@@ -27,7 +27,7 @@ export default function Chat(){
     useEffect(() =>{
         if (roomId) {
             db.collection('rooms').doc(roomId).onSnapshot((snapshot) =>
-                setRoomName(snapshot.data().name));
+                setRoom(snapshot.data()));
         }
     } , [roomId])
     
@@ -70,9 +70,9 @@ export default function Chat(){
     return(
         <div className='chat'>
             <div className='chat__header'>
-                <Avatar />
+                <Avatar src={room.imageURL} />
                 <div className='chat__headerInfo'>
-                    <h3>{roomName}</h3>
+                    <h3>{room.name}</h3>
                     {/* <p>Last seen</p> */}
                 </div>
                 <div className='chat__headerRight'>
