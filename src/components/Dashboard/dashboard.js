@@ -1,19 +1,19 @@
 import React from 'react';
+import { firebase } from '@firebase/app';
+
+import { withStyles } from '@material-ui/core';
+
 import NewChatComponent from '../NewChat/newChat';
 import ChatListComponent from '../ChatList/chatList';
 import ChatViewComponent from '../ChatView/chatView';
 import ChatTextBoxComponent from '../ChatTextBox/chatTextBox';
+
 import styles from './styles';
-import { withStyles } from '@material-ui/core';
-import { firebase } from '@firebase/app';
 
 // I need to investigate why sometimes
 // two messages will send instead of just
 // one. I dont know if there are two instances
 // of the chat box component or what...
-
-// I will be using both .then and async/await
-// in this tutorial to give a feel of both.
 
 class DashboardComponent extends React.Component {
 
@@ -99,7 +99,6 @@ class DashboardComponent extends React.Component {
       });
   }
 
-  // Always in alphabetical order:
   // 'user1:user2'
   buildDocKey = (friend) => [this.state.email, friend].sort().join(':');
 
@@ -137,9 +136,6 @@ class DashboardComponent extends React.Component {
     this.submitMessage(msg);
   }
 
-  // Chat index could be different than the one we are currently on in the case
-  // that we are calling this function from within a loop such as the chatList.
-  // So we will set a default value and can overwrite it when necessary.
   messageRead = () => {
     const chatIndex = this.state.selectedChat;
     const docKey = this.buildDocKey(this.state.chats[chatIndex].users.filter(_usr => _usr !== this.state.email)[0]);
@@ -158,9 +154,10 @@ class DashboardComponent extends React.Component {
 
   componentWillMount = () => {
       firebase.auth().onAuthStateChanged(async _usr => {
-        if(!_usr)
+        if(!_usr){
           var i =1+1;
-        else {
+          console.log(i)
+        }else {
           await firebase
             .firestore()
             .collection('chats')

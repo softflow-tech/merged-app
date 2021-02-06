@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
-import '../css/Contacts.css'
-import { useStateValue } from "../components/StateProvider";
-import ContactsCard from '../components/ContactsCard'
-import db from '../firebase'
 import { Link } from 'react-router-dom'
+
 import { Search } from "@material-ui/icons";
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
+
+import db from '../firebase'
+import ContactsCard from '../components/ContactsCard'
+import { useStateValue } from "../components/StateProvider";
+
+import '../css/Contacts.css'
 
 export default function Contacts() {
     const [{ user }, dispatch] = useStateValue();
     const [users, setUsers] = useState([]);
     const [searchValue, setSearchValue] = useState('');
+
+    console.log(dispatch)
 
     useEffect(() => {
         const unsubscribe = db.collection('users').doc(user.email).collection('friends').onSnapshot(snapshot => (
@@ -24,7 +27,7 @@ export default function Contacts() {
         return () => {
             unsubscribe();
         }
-    }, []);
+    }, [user.email])
 
 
     console.log(users);

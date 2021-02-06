@@ -1,30 +1,32 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
+import { firebase } from '@firebase/app';
 
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import { Avatar, IconButton } from "@material-ui/core";
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import NotificationImportant from '@material-ui/icons/NotificationImportant';
+
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Typography from '@material-ui/core/Typography';
 import styles from './styles';
-import Divider from '@material-ui/core/Divider';
-import Button from '@material-ui/core/Button';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import NotificationImportant from '@material-ui/icons/NotificationImportant';
-import { firebase } from '@firebase/app';
+
+let i;
 
 class ChatListComponent extends React.Component {
+
   signOut() {
     // firebase.auth().signOut();
     window.location.reload(false);
   }
 
   render() {
-    // var i;
     const { classes } = this.props;
 
     if (this.props.chats.length > 0) {
@@ -61,7 +63,7 @@ class ChatListComponent extends React.Component {
                       </Typography>
                       <ListItemAvatar>
                         {userImage(i)}
-                        <Avatar id={`image-${i}`} src={`https://avatars.dicebear.com/api/gridy/${avataImage(_chat.users.filter(_user => _user !== this.props.userEmail)[0])}.svg?background=%23ebf1ff`} alt={`${i}`}/>
+                        <Avatar id={`image-${i}`} src={`https://avatars.dicebear.com/api/gridy/${avataImage(_chat.users.filter(_user => _user !== this.props.userEmail)[0])}.svg?background=%23ebf1ff`} alt={`${i}`} />
                       </ListItemAvatar>
                       <ListItemText
                         primary={
@@ -71,7 +73,6 @@ class ChatListComponent extends React.Component {
                               {userFromEmail(i)}
                             </Typography>
                           </React.Fragment>
-
                         }
 
                         secondary={
@@ -124,12 +125,12 @@ class ChatListComponent extends React.Component {
   selectChat = (index) => this.props.selectChatFn(index);
 
 }
-var i;
+
 
 function avataImage(params) {
   var sequence = params
   var matches = sequence.match(/[A-z]/g);
-  return(matches.join(''));
+  return (matches.join(''));
 }
 
 function userFromEmail(em) {
@@ -159,7 +160,6 @@ function userImage(em) {
     .get()
     .then((doc) => {
       if (doc.exists) {
-        // document.getElementById(`image-${em}`).alt = doc.data().photoURL;
         return doc.data().photoURL;
       }
     })

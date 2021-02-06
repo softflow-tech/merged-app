@@ -1,30 +1,17 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch , Route} from 'react-router-dom'
 
-import { useStateValue } from "./StateProvider"
-
-import Account from "./Account"
 import Chat from "./Chat"
-import Contacts from "./Contacts"
 import Login from './Login'
-import DashboardComponent from './Dashboard/dashboard';
-
 import Sidebar from "./Sidebar"
-// import PrivateChat from './PrivateChat'
+import Account from "./Account"
+import Contacts from "./Contacts"
+import { useStateValue } from "./StateProvider"
+import DashboardComponent from './Dashboard/dashboard';
 
 import '../css/App.css'
 
 function App() {
-
-  // const slideR = () => {
-  //   var boxOne = document.getElementById('root')
-  //       boxOne.classList.add('horizTranslate');
-  //       var computedStyle = window.getComputedStyle(boxOne),
-  //       Left = computedStyle.getPropertyValue('left');
-  //       boxOne.style.left = Left;
-  //       boxOne.classList.remove('horizTranslate');    
-    
-  // };
 
   const slideRight = () => {
     document.getElementById('root').style.left = '-100%';
@@ -37,6 +24,7 @@ function App() {
   };
 
   const [{user}, dispatch ] = useStateValue();
+  console.log(dispatch)
 
   return(
    <div className='app'>
@@ -61,9 +49,6 @@ function App() {
             <Route path='/rooms/:roomId'>
               <Chat />
             </Route>
-            <Route path='/dm/:dmId'>
-              {/* <PrivateChat /> */}
-            </Route>
             <Route path='/account/:accountId'>
               <Account />
             </Route> 
@@ -71,7 +56,6 @@ function App() {
               <Contacts />
             </Route>            
             <Route path='/'>
-              {/* <Chat /> */}
               <Account />
             </Route>          
           </Switch>

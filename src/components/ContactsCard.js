@@ -1,11 +1,14 @@
 import React, {useState,useEffect} from "react";
-import { Avatar } from "@material-ui/core";
 import { Link } from 'react-router-dom'
+
+import { Avatar } from "@material-ui/core";
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+
 import db from '../firebase'
+
 import '../css/Contacts.css'
 
-export default function ContactsCard({id, name, addNewContact}) {
+export default function ContactsCard({id, addNewContact}) {
 
     const [ userDetails , setUserDetails ] = useState([]);
     useEffect( () => {
@@ -13,7 +16,7 @@ export default function ContactsCard({id, name, addNewContact}) {
         return () => {
             unsubscribe();
         }
-    },[]);
+    },[id]);
 
     const findFriend = () => {
 

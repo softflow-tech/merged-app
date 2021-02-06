@@ -16,14 +16,14 @@ export default function Account() {
     const [userDetails, setUserDetails] = useState("");
     const [friends, setFriends] = useState("");
     const [exist, setExists] = useState(true);
-
+    console.log(dispatch)
     if (accountId === undefined) {
         accountId = user.email
     }
 
     db.collection('users').doc(accountId).get().then((doc) => {
         setExists(doc.exists);
-        console.log('HELLOOO', doc)
+        // console.log('HELLOOO', doc)
     })
 
     db.collection('users').doc(user.email).collection('friends').doc(accountId).get().then((doc) => {
@@ -52,7 +52,7 @@ export default function Account() {
         return () => {
             unsubscribe();
         }
-    }, []);
+    }, [accountId]);
 
 
     const addFriend = () => {
@@ -70,8 +70,16 @@ export default function Account() {
         return (
             <div className='account'>
                 <div className='account__header'>
-                    <img src='https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255710-stock-illustration-avatar-vector-male-profile-gray.jpg' alt='profile_picture' />
-                    <h1>Account Does not exist</h1>
+                    <div className='imgContainer'>
+                        <img src='https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255710-stock-illustration-avatar-vector-male-profile-gray.jpg' alt='profile_picture' />
+                    </div>
+                    <h1> </h1>
+
+                </div>
+                <div className='account__info'>
+                    <br />
+                    <h1>User does not exist</h1>
+                    <h3>{accountId}</h3>
                 </div>
             </div>
         )
@@ -82,7 +90,7 @@ export default function Account() {
                     <div className='imgContainer'>
                         <img src={userDetails?.photoURL} alt='profile_picture' />
                     </div>
-                    <h1></h1>
+                    <h1> </h1>
 
                 </div>
                 <div className='account__info'>
@@ -109,7 +117,7 @@ export default function Account() {
                     <div className='imgContainer'>
                         <img src={userDetails?.photoURL} alt='profile_picture' />
                     </div>
-                    <h1></h1>
+                    <h1> </h1>
 
                 </div>
                 <div className='account__info'>

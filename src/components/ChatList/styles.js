@@ -1,6 +1,6 @@
 const styles = theme => ({
     root: {
-      backgroundColor: 'white',
+      // backgroundColor: 'white',
       height: 'calc(100% - 35px)',
       position: 'absolute',
       left: '0',

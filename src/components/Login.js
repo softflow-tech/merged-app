@@ -1,13 +1,11 @@
-import React , {useEffect} from 'react'
-import { Button } from '@material-ui/core'
-import { auth , provider} from "../firebase";
+import React from 'react'
+import firebase from 'firebase'
 
 import '../css/Login.css';
 import { actionTypes } from './reducer';
 import { useStateValue } from "./StateProvider"
+import db , { auth , provider}  from '../firebase'
 
-import db from '../firebase'
-import firebase from 'firebase'
 var firebaseui = require('firebaseui');
 const ui = new firebaseui.auth.AuthUI(firebase.auth());
 
@@ -27,7 +25,8 @@ export default function Login(){
         });
     };
 
-    const [{} , dispatch ]  = useStateValue();
+    const [{u} , dispatch ]  = useStateValue();
+    console.log(u)
 
     var uiConfig = {
         callbacks: {
