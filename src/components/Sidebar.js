@@ -8,7 +8,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import db from '../firebase'
 import SidebarChat from './SidebarChat'
-import { useStateValue } from "../components/StateProvider";
+import { useStateValue } from "./StateProvider";
 
 import '../css/Sidebar.css'
 
