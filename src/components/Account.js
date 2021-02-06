@@ -71,15 +71,16 @@ export default function Account() {
             <div className='account'>
                 <div className='account__header'>
                     <div className='imgContainer'>
-                        <img src='https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255710-stock-illustration-avatar-vector-male-profile-gray.jpg' alt='profile_picture' />
+                        {/* <img src='https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255710-stock-illustration-avatar-vector-male-profile-gray.jpg' alt='profile_picture' /> */}
+                        <img src='https://cdn.pixabay.com/photo/2018/09/06/18/26/person-3658927_960_720.png' alt='profile_picture' />
                     </div>
                     <h1> </h1>
 
                 </div>
                 <div className='account__info'>
                     <br />
-                    <h1>User does not exist</h1>
-                    <h3>{accountId}</h3>
+                    <h1>User Does Not Exist</h1>
+                    {/* <h3>{accountId}</h3> */}
                 </div>
             </div>
         )
@@ -99,13 +100,19 @@ export default function Account() {
                     <br />
                     {/* <h2>Account information: </h2> */}
                     <p><b><EmailIcon style={{ fontSize: 200 }} /> </b>{userDetails.email}</p>
+                    
+                    
+                    <div className='sec_buts' >
                     <IconButton>
                         <ChatIcon onClick={slideRight} />
                     </IconButton>
-                    <IconButton>
-                        <PersonAddIcon onClick={addFriend} style={friends === 'false' ? { fontSize: 40 } : { display: 'none' }} />
-                        <PersonAddDisabledIcon onClick={removeFriend} style={friends === 'true' ? { fontSize: 40 } : { display: 'none' }} />
-                    </IconButton>
+                        <IconButton>
+                            <PersonAddIcon onClick={addFriend} style={friends === 'false' ? { fontSize: 40 } : { display: 'none' }} />
+                            <PersonAddDisabledIcon onClick={removeFriend} style={friends === 'true' ? { fontSize: 40 } : { display: 'none' }} />
+                        </IconButton>
+                    </div>
+ 
+                    
                 </div>
 
             </div>
@@ -116,6 +123,7 @@ export default function Account() {
                 <div className='account__header'>
                     <div className='imgContainer'>
                         <img src={userDetails?.photoURL} alt='profile_picture' />
+                        
                     </div>
                     <h1> </h1>
 
